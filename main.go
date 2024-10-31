@@ -1,11 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"os/signal"
-	"syscall"
-
 	"github.com/spf13/cobra"
 )
 
@@ -23,13 +18,5 @@ func run(cmd *cobra.Command, args []string) {
 }
 
 func main() {
-	go func() {
-		s := make(chan os.Signal, 1)
-		signal.Notify(s, syscall.SIGINT, syscall.SIGTERM)
-		sig := fmt.Errorf("%s", <-s)
-		_ = sig
-		os.Exit(0)
-	}()
-
 	rootCmd.Execute()
 }
