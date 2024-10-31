@@ -1,7 +1,10 @@
 package main
 
 import (
-	"log"
+	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/spf13/cobra"
 )
@@ -9,8 +12,8 @@ import (
 var (
 	rootCmd = &cobra.Command{
 		Use:          "thea",
-		Short:        "A simple port-forward wrapper tool for multiple pods/deployments/services",
-		Long:         `A simple port-forward wrapper tool for multiple pods/deployments/services.`,
+		Short:        "Caching server for Arrow-based data",
+		Long:         `Caching server for Arrow-based data.`,
 		Run:          run,
 		SilenceUsage: true,
 	}
@@ -20,5 +23,13 @@ func run(cmd *cobra.Command, args []string) {
 }
 
 func main() {
-	log.Println("hello")
+	go func() {
+		s := make(chan os.Signal)
+		signal.Notify(s, syscall.SIGINT, syscall.SIGTERM)
+		sig := fmt.Errorf("%s", <-s)
+		_ = sig
+		os.Exit(0)
+	}()
+
+	rootCmd.Execute()
 }
