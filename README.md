@@ -4,10 +4,10 @@ $ git submodule add https://github.com/apache/arrow-nanoarrow nanoarrow
 $ git checkout apache-arrow-nanoarrow-0.6.0
 $ # git add ...; git commit ...; git push ...
 
-# To update:
+# To update submodule:
 $ git submodule update --init --recursive
 
-# Build nanoarrow:
+# To build nanoarrow:
 $ cd nanoarrow/
 $ mkdir build && cd build
 $ cmake ..
