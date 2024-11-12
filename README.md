@@ -1,10 +1,10 @@
 ``` sh
-# To setup submodule:
+# How submodule was setup. No need to do this.
 $ git submodule add https://github.com/apache/arrow-nanoarrow nanoarrow
 $ git checkout apache-arrow-nanoarrow-0.6.0
 # git add ...; git commit ...; git push ...
 
-# To update submodule:
+# To update submodule (after clone):
 $ git submodule update --init --recursive
 
 # To build nanoarrow:
