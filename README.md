@@ -21,6 +21,7 @@ $ python3 nanoarrow/ci/scripts/bundle.py \
   --with-ipc \
   --with-flatcc
 
-# Generate the 'cmake' dir for clangd's compilation db:
+# Generate the 'cmake' dir for clangd's compilation db.
+# (Run every time there are changes to our C sources.)
 $ cmake -S . -B cmake
 ```
