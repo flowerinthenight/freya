@@ -1,3 +1,0 @@
-[submodule "submodules/nanoarrow"]
-	path = submodules/nanoarrow
-	url = https://github.com/apache/arrow-nanoarrow
