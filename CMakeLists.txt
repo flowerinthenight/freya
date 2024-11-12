@@ -1,3 +1,5 @@
+# This file is only for clangd LSP, not for actual build.
+
 cmake_minimum_required(VERSION 3.14)
 project(thea)
 
