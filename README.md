@@ -13,7 +13,7 @@ $ mkdir build && cd build
 $ cmake ..
 $ cmake --build .
 
-# Generate bundled source:
+# Generate bundled sources to c/:
 $ python3 nanoarrow/ci/scripts/bundle.py \
   --source-output-dir=c \
   --include-output-dir=c \
