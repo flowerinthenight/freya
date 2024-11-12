@@ -12,4 +12,12 @@ $ cd nanoarrow/
 $ mkdir build && cd build
 $ cmake ..
 $ cmake --build .
+
+# Generate bundled source:
+$ python3 nanoarrow/ci/scripts/bundle.py \
+  --source-output-dir=c \
+  --include-output-dir=c \
+  --symbol-namespace=thea \
+  --with-ipc \
+  --with-flatcc
 ```
