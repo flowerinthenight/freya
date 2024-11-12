@@ -5,7 +5,7 @@ const c = @cImport({
 });
 
 pub fn main() !void {
-    print("{d}\n", .{c.add(1, 2)});
+    print("{d}\n", .{c.ffi()});
 }
 
 test "simple test" {
