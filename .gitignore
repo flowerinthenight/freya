@@ -5,3 +5,4 @@
 *.dylib
 .zig-cache/
 zig-out/
+cmake/
