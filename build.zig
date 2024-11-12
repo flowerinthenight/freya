@@ -11,6 +11,18 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    exe.addIncludePath(b.path("c/"));
+    exe.addCSourceFiles(.{
+        .root = b.path("c/"),
+        .files = &.{
+            "bindings.c",
+            "flatcc.c",
+            "nanoarrow.c",
+            "nanoarrow_ipc.c",
+        },
+    });
+
+    exe.linkLibC();
     b.installArtifact(exe);
 
     const run_cmd = b.addRunArtifact(exe);
@@ -27,6 +39,7 @@ pub fn build(b: *std.Build) void {
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
+        .filter = b.option([]const u8, "test-filter", "Filter strings for test"),
     });
 
     const run_exe_unit_tests = b.addRunArtifact(exe_unit_tests);
