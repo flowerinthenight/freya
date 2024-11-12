@@ -20,4 +20,7 @@ $ python3 nanoarrow/ci/scripts/bundle.py \
   --symbol-namespace=thea \
   --with-ipc \
   --with-flatcc
+
+# Generate the 'cmake' dir for clangd's compilation db:
+$ cmake -S . -B cmake
 ```
