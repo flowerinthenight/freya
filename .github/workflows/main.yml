@@ -9,22 +9,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-  codeberg:
-    name: Codeberg
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Mirror to Codeberg
-        uses: yesolutions/mirror-action@master
-        with:
-          REMOTE: "https://codeberg.org/flowerinthenight/zgroup.git"
-          GIT_USERNAME: flowerinthenight
-          GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
-
   build:
     name: Build
     if: "!contains(github.event.commits[0].message, 'ci skip')"
@@ -53,6 +37,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           zig build -Doptimize=ReleaseFast -Dtarget=x86_64-linux --summary all
-          cp zig-out/bin/zgroup ./
-          tar czvf zgroup-${GITHUB_REF_NAME}-x86_64-linux.tar.gz zgroup
+          cp zig-out/bin/thea ./
+          tar czvf thea-${GITHUB_REF_NAME}-x86_64-linux.tar.gz thea
           gh release create ${GITHUB_REF_NAME} ./*.tar.gz --generate-notes
