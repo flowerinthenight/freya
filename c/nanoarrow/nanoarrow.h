@@ -27,7 +27,7 @@
   (NANOARROW_VERSION_MAJOR * 10000 + NANOARROW_VERSION_MINOR * 100 + \
    NANOARROW_VERSION_PATCH)
 
-#define NANOARROW_NAMESPACE thea
+#define NANOARROW_NAMESPACE freya
 
 #endif
 // Licensed to the Apache Software Foundation (ASF) under one

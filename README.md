@@ -17,7 +17,7 @@ $ cmake --build .
 $ python3 nanoarrow/ci/scripts/bundle.py \
   --source-output-dir=c \
   --include-output-dir=c \
-  --symbol-namespace=thea \
+  --symbol-namespace=freya \
   --with-ipc \
   --with-flatcc
 
