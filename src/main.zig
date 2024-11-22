@@ -11,7 +11,8 @@ fn ffi() void {
 }
 
 pub fn sock() !void {
-    const path = "/tmp/hedged-notify.sock";
+    const path = "/tmp/freya-hedged-notify.sock";
+    std.fs.deleteFileAbsolute(path) catch {};
     const addr = try std.net.Address.initUnix(path);
     var server = try addr.listen(.{});
     defer server.deinit();
@@ -20,8 +21,8 @@ pub fn sock() !void {
     while (true) {
         log.info("waiting for connections...", .{});
         const conn = try server.accept();
-        const bytes = try conn.stream.read(&buff);
-        log.info("read: {any}, {s}", .{ bytes, buff });
+        const n = try conn.stream.read(&buff);
+        log.info("read: n={d}, {s}", .{ n, buff });
     }
 }
 
