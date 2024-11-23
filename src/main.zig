@@ -11,7 +11,7 @@ fn ffi() void {
 }
 
 pub fn sock() !void {
-    const path = "/tmp/freya-hedged-notify.sock";
+    const path = "/tmp/freya-freyr-notify.sock";
     std.fs.deleteFileAbsolute(path) catch {};
     const addr = try std.net.Address.initUnix(path);
     var server = try addr.listen(.{});
