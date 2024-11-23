@@ -1,3 +1,5 @@
+[![build](https://github.com/flowerinthenight/freya/actions/workflows/main.yml/badge.svg)](https://github.com/flowerinthenight/freya/actions/workflows/main.yml)
+
 ``` sh
 # How submodule was setup. No need to do this.
 $ git submodule add https://github.com/apache/arrow-nanoarrow nanoarrow
