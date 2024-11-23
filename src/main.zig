@@ -6,6 +6,7 @@ const c = @cImport({
     @cInclude("bindings.h");
 });
 
+// To test: cat testdata/simple.arrow | ./zig-out/bin/freya
 fn ffi() void {
     print("{d}\n", .{c.ffi()});
 }
