@@ -12,15 +12,16 @@ fn ffi() void {
 }
 
 pub fn sock() !void {
-    const path = "/tmp/freya-freyr-notify.sock";
-    std.fs.deleteFileAbsolute(path) catch {};
-    const addr = try std.net.Address.initUnix(path);
+    const socket = "/tmp/freya-freyr-notify.sock";
+    std.fs.deleteFileAbsolute(socket) catch {};
+    const addr = try std.net.Address.initUnix(socket);
     var server = try addr.listen(.{});
     defer server.deinit();
 
+    log.info("listening on {s}", .{socket});
+
     var buff: [500]u8 = undefined;
     while (true) {
-        log.info("waiting for connections...", .{});
         const conn = try server.accept();
         const n = try conn.stream.read(&buff);
         log.info("read: n={d}, {s}", .{ n, buff });
