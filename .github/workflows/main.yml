@@ -1,4 +1,5 @@
-name: main
+---
+name: Build
 
 on:
   push:
